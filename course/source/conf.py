@@ -10,7 +10,7 @@ from sphinx_gallery.sorting import ExampleTitleSortKey
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Ten Equations'
+project = 'The Ten Equations'
 copyright = '2022, David Sumpter'
 author = 'David Sumpter'
 
@@ -24,6 +24,7 @@ extensions = ['sphinx.ext.mathjax',
 
 templates_path = ['_templates']
 exclude_patterns = []
+
 
 # sphinx gallery
 sphinx_gallery_conf = {
@@ -42,7 +43,14 @@ sphinx_gallery_conf = {
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
+html_show_sourcelink = False
+html_show_contentslink = False
+
+def setup (app):
+    app.add_css_file('css/custom.css')
+
+
 # add logo
-html_logo = "logo.png"
+html_logo = "images/TENLogo.png"
 html_theme_options = {'logo_only': True,
                       'display_version': False}

@@ -53,13 +53,13 @@ First part of the book.
 .. only:: html
 
   .. image:: /gallery/lesson1/images/thumb/sphx_glr_plot_predictions_thumb.png
-    :alt: Model predictions
+    :alt: Predictions World Cup 2022
 
   :ref:`sphx_glr_gallery_lesson1_plot_predictions.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Model predictions</div>
+      <div class="sphx-glr-thumbnail-title">Predictions World Cup 2022</div>
     </div>
 
 

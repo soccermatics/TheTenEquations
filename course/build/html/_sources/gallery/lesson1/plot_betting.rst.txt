@@ -18,6 +18,8 @@
 .. _sphx_glr_gallery_lesson1_plot_betting.py:
 
 
+.. _fitmodel:
+
 Fitting the model
 ================
 
@@ -25,7 +27,7 @@ In this section we use odds from previous tournaments to
 fit the model to data. We do this using a method known 
 as logistic regression. Let's start by loading in the data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 9-42
+.. GENERATED FROM PYTHON SOURCE LINES 11-44
 
 .. code-block:: default
 
@@ -69,7 +71,7 @@ as logistic regression. Let's start by loading in the data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-95
+.. GENERATED FROM PYTHON SOURCE LINES 45-97
 
 A logistic regression model has the following form 
 
@@ -124,7 +126,7 @@ This is the same as the :math:numref:`Betting Equation <eq:Betting>`, with :math
 
 Let's calculate the log odds for our data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 95-101
+.. GENERATED FROM PYTHON SOURCE LINES 97-103
 
 .. code-block:: default
 
@@ -141,12 +143,12 @@ Let's calculate the log odds for our data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 102-104
+.. GENERATED FROM PYTHON SOURCE LINES 104-106
 
 Now lets import tools required for a logistic regression model
 and use them to fit the parameters.
 
-.. GENERATED FROM PYTHON SOURCE LINES 104-117
+.. GENERATED FROM PYTHON SOURCE LINES 106-119
 
 .. code-block:: default
 
@@ -179,7 +181,7 @@ and use them to fit the parameters.
     Link Function:                                 Logit   Scale:                          1.0000
     Method:                                         IRLS   Log-Likelihood:                -180.75
     Date:                               Sun, 06 Nov 2022   Deviance:                       361.49
-    Time:                                       16:20:53   Pearson chi2:                     283.
+    Time:                                       21:52:01   Pearson chi2:                     283.
     No. Iterations:                                    4   Pseudo R-squ. (CS):             0.1031
     Covariance Type:                           nonrobust                                         
     ==============================================================================
@@ -194,12 +196,12 @@ and use them to fit the parameters.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 118-120
+.. GENERATED FROM PYTHON SOURCE LINES 120-122
 
 We now have an estimate of our paramters :math:`\alpha` and :math:`\beta`.
 Let's plot the model and compare it to the data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 120-167
+.. GENERATED FROM PYTHON SOURCE LINES 122-169
 
 .. code-block:: default
 
@@ -262,13 +264,13 @@ Let's plot the model and compare it to the data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 168-171
+.. GENERATED FROM PYTHON SOURCE LINES 170-173
 
 Same for opening odds
 ---------------------
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 171-193
+.. GENERATED FROM PYTHON SOURCE LINES 173-195
 
 .. code-block:: default
 
@@ -315,7 +317,7 @@ Same for opening odds
     Link Function:                                 Logit   Scale:                          1.0000
     Method:                                         IRLS   Log-Likelihood:                -169.67
     Date:                               Sun, 06 Nov 2022   Deviance:                       339.33
-    Time:                                       16:20:53   Pearson chi2:                     259.
+    Time:                                       21:52:02   Pearson chi2:                     259.
     No. Iterations:                                    4   Pseudo R-squ. (CS):            0.07218
     Covariance Type:                           nonrobust                                         
     ==============================================================================
@@ -333,7 +335,7 @@ Same for opening odds
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.521 seconds)
+   **Total running time of the script:** ( 0 minutes  1.599 seconds)
 
 
 .. _sphx_glr_download_gallery_lesson1_plot_betting.py:

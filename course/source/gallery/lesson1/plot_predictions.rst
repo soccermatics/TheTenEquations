@@ -18,13 +18,15 @@
 .. _sphx_glr_gallery_lesson1_plot_predictions.py:
 
 
-Model predictions
-=================
+.. _predictions2022:
+
+Predictions World Cup 2022
+==========================
 
 In this section we use the model to make predictions for
 the World Cup 2022.
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-56
+.. GENERATED FROM PYTHON SOURCE LINES 10-58
 
 
 
@@ -143,7 +145,7 @@ the World Cup 2022.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.014 seconds)
+   **Total running time of the script:** ( 0 minutes  0.012 seconds)
 
 
 .. _sphx_glr_download_gallery_lesson1_plot_predictions.py:

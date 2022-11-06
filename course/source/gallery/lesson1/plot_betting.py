@@ -1,4 +1,6 @@
 """
+.. _fitmodel:
+
 Fitting the model
 ================
 

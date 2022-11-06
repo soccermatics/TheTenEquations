@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fitting the model &mdash; Ten Equations  documentation</title>
+  <title>Fitting the model &mdash; The Ten Equations  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
@@ -23,8 +24,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Model predictions" href="plot_predictions.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="../../lesson1/ProbabilitiesOdds.html" /> 
+    <link rel="next" title="Predictions World Cup 2022" href="plot_predictions.html" />
+    <link rel="prev" title="Odds and probabilities" href="../../lesson1/ProbabilitiesOdds.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -33,7 +34,7 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
             <a href="../../index.html">
-            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+            <img src="../../_static/TENLogo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -43,17 +44,15 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Welcome:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../course_overview.html">Getting started</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">The Betting Equation:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">The Betting Equation:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../lesson1/Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson1/ProbabilitiesOdds.html">Odds and probabilities</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Fitting the model</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#same-for-opening-odds">Same for opening odds</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="plot_predictions.html">Model predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_predictions.html">Predictions World Cup 2022</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">The Judgement Equation:</span></p>
 <ul>
@@ -66,7 +65,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">Ten Equations</a>
+          <a href="../../index.html">The Ten Equations</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -76,7 +75,6 @@
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
       <li>Fitting the model</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/gallery/lesson1/plot_betting.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -90,7 +88,7 @@
 to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="fitting-the-model">
-<span id="sphx-glr-gallery-lesson1-plot-betting-py"></span><h1>Fitting the model<a class="headerlink" href="#fitting-the-model" title="Permalink to this heading"></a></h1>
+<span id="fitmodel"></span><span id="sphx-glr-gallery-lesson1-plot-betting-py"></span><h1>Fitting the model<a class="headerlink" href="#fitting-the-model" title="Permalink to this heading"></a></h1>
 <p>In this section we use odds from previous tournaments to
 fit the model to data. We do this using a method known
 as logistic regression. Let’s start by loading in the data.</p>
@@ -184,7 +182,7 @@ Model Family:                               Binomial   Df Model:                
 Link Function:                                 Logit   Scale:                          1.0000
 Method:                                         IRLS   Log-Likelihood:                -180.75
 Date:                               Sun, 06 Nov 2022   Deviance:                       361.49
-Time:                                       16:20:53   Pearson chi2:                     283.
+Time:                                       21:52:01   Pearson chi2:                     283.
 No. Iterations:                                    4   Pseudo R-squ. (CS):             0.1031
 Covariance Type:                           nonrobust
 ==============================================================================
@@ -279,7 +277,7 @@ Model Family:                               Binomial   Df Model:                
 Link Function:                                 Logit   Scale:                          1.0000
 Method:                                         IRLS   Log-Likelihood:                -169.67
 Date:                               Sun, 06 Nov 2022   Deviance:                       339.33
-Time:                                       16:20:53   Pearson chi2:                     259.
+Time:                                       21:52:02   Pearson chi2:                     259.
 No. Iterations:                                    4   Pseudo R-squ. (CS):            0.07218
 Covariance Type:                           nonrobust
 ==============================================================================
@@ -292,7 +290,7 @@ Estimate of alpha:  1.0372197647675445
 Estimate of beta:  1.105112298236666
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.521 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.599 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-lesson1-plot-betting-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/edffe992414be1288b50fd874a23b961/plot_betting.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_betting.py</span></code></a></p>
@@ -309,8 +307,8 @@ Estimate of beta:  1.105112298236666
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../../lesson1/ProbabilitiesOdds.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="plot_predictions.html" class="btn btn-neutral float-right" title="Model predictions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../lesson1/ProbabilitiesOdds.html" class="btn btn-neutral float-left" title="Odds and probabilities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_predictions.html" class="btn btn-neutral float-right" title="Predictions World Cup 2022" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -1,4 +1,4 @@
-.. image:: logo-blue.png
+.. image:: images/TENCover.png
    :width: 157
    :align: center
 

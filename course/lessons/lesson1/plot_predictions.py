@@ -1,6 +1,8 @@
 """
-Model predictions
-=================
+.. _predictions2022:
+
+Predictions World Cup 2022
+==========================
 
 In this section we use the model to make predictions for
 the World Cup 2022.

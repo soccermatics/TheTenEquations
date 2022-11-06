@@ -5,8 +5,8 @@
 
 Computation times
 =================
-**00:00.004** total execution time for **gallery_lesson2** files:
+**00:00.001** total execution time for **gallery_lesson2** files:
 
 +-------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_gallery_lesson2_plot_bayes.py` (``plot_bayes.py``) | 00:00.004 | 0.0 MB |
+| :ref:`sphx_glr_gallery_lesson2_plot_bayes.py` (``plot_bayes.py``) | 00:00.001 | 0.0 MB |
 +-------------------------------------------------------------------+-----------+--------+
