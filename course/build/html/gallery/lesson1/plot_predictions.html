@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Model predictions &mdash; Ten Equations  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Bayes Rule" href="../lesson2/plot_bayes.html" />
+    <link rel="prev" title="Fitting the model" href="plot_betting.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html">
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Welcome:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course_overview.html">Getting started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">The Betting Equation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="plot_betting.html">Fitting the model</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Model predictions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">The Judgement Equation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lesson2/plot_bayes.html">Bayes Rule</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Ten Equations</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Model predictions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/gallery/lesson1/plot_predictions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-gallery-lesson1-plot-predictions-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="model-predictions">
+<span id="sphx-glr-gallery-lesson1-plot-predictions-py"></span><h1>Model predictions<a class="headerlink" href="#model-predictions" title="Permalink to this heading"></a></h1>
+<p>In this section we use the model to make predictions for
+the World Cup 2022.</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Back underdog Qatar on odds better than 3.64.
+No bet England vs. Iran
+No bet Netherlands vs. Senegal
+Back underdog Wales on odds better than 3.02.
+No bet Argentina vs. Saudi Arabia
+No bet Denmark vs. Tunisia
+Back underdog Mexico on odds better than 2.71.
+No bet France vs. Australia
+No bet Croatia vs. Morocco
+No bet Germany vs. Japan
+No bet Spain vs. Costa Rica
+No bet Belgium vs. Canada
+No bet Switzerland vs. Cameroon
+No bet Uruguay vs. South Korea
+No bet Portugal vs. Ghana
+No bet Brazil vs. Serbia
+Back underdog Iran on odds better than 3.55.
+Back underdog Qatar on odds better than 3.86.
+No bet Netherlands vs. Ecuador
+No bet England vs. USA
+Back underdog Tunisia on odds better than 2.89.
+No bet Poland vs. Saudi Arabia
+Back underdog Denmark on odds better than 4.11.
+No bet Argentina vs. Mexico
+No bet Japan vs. Costa Rica
+No bet Belgium vs. Morocco
+No bet Croatia vs. Canada
+Back underdog Germany on odds better than 2.82.
+Back underdog Cameroon on odds better than 4.23.
+Back underdog Ghana on odds better than 2.94.
+No bet Brazil vs. Switzerland
+Back underdog Uruguay on odds better than 3.77.
+Back underdog Ecuador on odds better than 2.90.
+No bet Netherlands vs. Qatar
+Back underdog Iran on odds better than 3.43.
+No bet England vs. Wales
+No bet Denmark vs. Australia
+No bet France vs. Tunisia
+No bet Argentina vs. Poland
+No bet Mexico vs. Saudi Arabia
+Back underdog Canada on odds better than 3.20.
+No bet Belgium vs. Croatia
+No bet Germany vs. Costa Rica
+No bet Spain vs. Japan
+No bet Uruguay vs. Ghana
+No bet Portugal vs. South Korea
+No bet Brazil vs. Cameroon
+Back underdog Serbia on odds better than 2.74.
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0372197647675445</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">1.1051122982366652</span>
+
+<span class="n">odds_load</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/WC2022.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+
+<span class="n">totprob</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;Home&#39;</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;Draw&#39;</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;Away&#39;</span><span class="p">]</span>
+<span class="n">odds_load</span> <span class="o">=</span> <span class="n">odds_load</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">homeprob</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;Home&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">totprob</span><span class="p">)</span>
+<span class="n">odds_load</span> <span class="o">=</span> <span class="n">odds_load</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">awayprob</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;Away&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">totprob</span><span class="p">)</span>
+<span class="n">odds_load</span> <span class="o">=</span> <span class="n">odds_load</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">drawprob</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;Draw&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">totprob</span><span class="p">)</span>
+
+
+<span class="c1"># Calculate in terms of favourite.</span>
+<span class="n">odds_load</span> <span class="o">=</span> <span class="n">odds_load</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">favodds</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;Home&#39;</span><span class="p">],</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;Away&#39;</span><span class="p">]))</span>
+<span class="n">odds_load</span> <span class="o">=</span> <span class="n">odds_load</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">underdogodds</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;Home&#39;</span><span class="p">],</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;Away&#39;</span><span class="p">]))</span>
+<span class="n">odds_load</span> <span class="o">=</span> <span class="n">odds_load</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">favprob</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;homeprob&#39;</span><span class="p">],</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;awayprob&#39;</span><span class="p">]))</span>
+<span class="n">odds_load</span> <span class="o">=</span> <span class="n">odds_load</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">favfair</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;favprob&#39;</span><span class="p">])</span>
+
+
+<span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;favourite&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;underdog&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">odds_row</span> <span class="ow">in</span> <span class="n">odds_load</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;homeprob&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;awayprob&#39;</span><span class="p">]):</span>
+        <span class="n">odds_load</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;favourite&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;Home Team&#39;</span><span class="p">]</span>
+        <span class="n">odds_load</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;underdog&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;Away Team&#39;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">odds_load</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;favourite&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;Away Team&#39;</span><span class="p">]</span>
+        <span class="n">odds_load</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;underdog&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;Home Team&#39;</span><span class="p">]</span>
+
+
+
+
+<span class="n">odds_load</span> <span class="o">=</span> <span class="n">odds_load</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">favnewprob</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">alpha</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;favfair&#39;</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">beta</span><span class="p">)))</span>
+<span class="n">odds_load</span> <span class="o">=</span> <span class="n">odds_load</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">underdognewprob</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;favnewprob&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;drawprob&#39;</span><span class="p">])</span>
+<span class="n">odds_load</span> <span class="o">=</span> <span class="n">odds_load</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">favfairodds</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;favnewprob&#39;</span><span class="p">])</span>
+<span class="n">odds_load</span> <span class="o">=</span> <span class="n">odds_load</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">underdogfairodds</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;underdognewprob&#39;</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">odds_row</span> <span class="ow">in</span> <span class="n">odds_load</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;favfairodds&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;favodds&#39;</span><span class="p">]):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Back favourite </span><span class="si">%s</span><span class="s1"> on odds better than </span><span class="si">%.2f</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;favourite&#39;</span><span class="p">],</span><span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;favfairodds&#39;</span><span class="p">])</span> <span class="p">)</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;underdogfairodds&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;underdogodds&#39;</span><span class="p">]):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Back underdog </span><span class="si">%s</span><span class="s1"> on odds better than </span><span class="si">%.2f</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span> <span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;underdog&#39;</span><span class="p">],</span> <span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;underdogfairodds&#39;</span><span class="p">])</span> <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No bet </span><span class="si">%s</span><span class="s1"> vs. </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;favourite&#39;</span><span class="p">],</span><span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;underdog&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.014 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-lesson1-plot-predictions-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/b0d67d94909331481feafb568b665ed2/plot_predictions.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_predictions.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/346f8d2d56147f7f5fc4e60dec4fe635/plot_predictions.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_predictions.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_betting.html" class="btn btn-neutral float-left" title="Fitting the model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../lesson2/plot_bayes.html" class="btn btn-neutral float-right" title="Bayes Rule" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, David Sumpter.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
