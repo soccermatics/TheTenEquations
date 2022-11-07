@@ -10,6 +10,7 @@ dependencies:
   - pyarrow
   - requests
   - scipy
+  - seaborn
   - sphinx
   - sphinx-gallery
   - sphinx_rtd_theme

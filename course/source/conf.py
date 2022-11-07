@@ -20,6 +20,7 @@ author = 'David Sumpter'
 extensions = ['sphinx.ext.mathjax',
               'sphinx_gallery.gen_gallery',
               'sphinxcontrib.youtube',
+              'myst_parser'
               ]
 
 templates_path = ['_templates']
