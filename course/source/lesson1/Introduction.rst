@@ -27,7 +27,7 @@ how Benter made a billion dollars; how British gamblers, Matthew Benham and Tony
 followed a similar approach to football, allowing them to buy their childhood clubs 
 Brentford and Brighton, respectively; and I meet Oxford statistician Sir David Cox who discovered the maths behind their approaches.
 
-Now we will look in more detail at the maths behind the equation that 
+Now we will look in more detail at the equation that 
 Marius, Jan and I used to make money on the 2018 Wrold Cup: The Betting 
 Equation.
 
