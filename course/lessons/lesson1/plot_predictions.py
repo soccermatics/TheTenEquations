@@ -40,9 +40,6 @@ for i,odds_row in odds_load.iterrows():
         odds_load.at[i,'favourite'] = odds_row['Away Team']
         odds_load.at[i,'underdog'] = odds_row['Home Team']  
         
-        
-        
-    
 odds_load = odds_load.assign(favnewprob=1/(1+alpha*np.power(odds_load['favfair']-1,beta)))
 odds_load = odds_load.assign(underdognewprob=1-odds_load['favnewprob']-odds_load['drawprob'])
 odds_load = odds_load.assign(favfairodds=1/odds_load['favnewprob'])
