@@ -34,7 +34,7 @@ First part of the book.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="In this section we use the model to make predictions for the World Cup 2022.">
+    <div class="sphx-glr-thumbcontainer" tooltip="How it went in 2018 -------------------">
 
 .. only:: html
 

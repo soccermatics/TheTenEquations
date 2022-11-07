@@ -23,75 +23,38 @@
 Predictions World Cup 2022
 ==========================
 
-In this section we use the model to make predictions for
-the World Cup 2022.
+How it went in 2018
+-------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 10-58
+Marius, Jan and myself placed a series of bets on the Wrold Cup 2018 and we won.
+Later I wrote...
 
+.. image:: ../../images/lesson1/TheResult.png
+   :width: 640
+   :align: center
 
+I am always in two minds as to whether to offer gambling tips. In the 
+Ten Equations I follow Jan and Marius as they start to profit from their gambling
+enterprise. They adopted a scientific approach, while many people looking for
+quick tips do not. This proved to be a common theme when I looked at the role of
+maths in society: those with the knowledge accumulate financial resources, 
+those without the appropriate training lose out. 
 
+Nevertheless, it isn't an interesting experiment if we don't make predictions. 
+So here we go...
 
-.. rst-class:: sphx-glr-script-out
+Try it in 2022
+--------------
 
- .. code-block:: none
+We now load in the odds for World Cup 2022 and try to find an edge using the model. 
+When I collected the odds used here, they were still close to the opening level. 
+So I use the paramters measured for that value. You can upload closing odds 
+before the match and change the :math:`lpha` or :math:`eta` values accordingly.
 
-    Back underdog Qatar on odds better than 3.64.
-    No bet England vs. Iran
-    No bet Netherlands vs. Senegal
-    Back underdog Wales on odds better than 3.02.
-    No bet Argentina vs. Saudi Arabia
-    No bet Denmark vs. Tunisia
-    Back underdog Mexico on odds better than 2.71.
-    No bet France vs. Australia
-    No bet Croatia vs. Morocco
-    No bet Germany vs. Japan
-    No bet Spain vs. Costa Rica
-    No bet Belgium vs. Canada
-    No bet Switzerland vs. Cameroon
-    No bet Uruguay vs. South Korea
-    No bet Portugal vs. Ghana
-    No bet Brazil vs. Serbia
-    Back underdog Iran on odds better than 3.55.
-    Back underdog Qatar on odds better than 3.86.
-    No bet Netherlands vs. Ecuador
-    No bet England vs. USA
-    Back underdog Tunisia on odds better than 2.89.
-    No bet Poland vs. Saudi Arabia
-    Back underdog Denmark on odds better than 4.11.
-    No bet Argentina vs. Mexico
-    No bet Japan vs. Costa Rica
-    No bet Belgium vs. Morocco
-    No bet Croatia vs. Canada
-    Back underdog Germany on odds better than 2.82.
-    Back underdog Cameroon on odds better than 4.23.
-    Back underdog Ghana on odds better than 2.94.
-    No bet Brazil vs. Switzerland
-    Back underdog Uruguay on odds better than 3.77.
-    Back underdog Ecuador on odds better than 2.90.
-    No bet Netherlands vs. Qatar
-    Back underdog Iran on odds better than 3.43.
-    No bet England vs. Wales
-    No bet Denmark vs. Australia
-    No bet France vs. Tunisia
-    No bet Argentina vs. Poland
-    No bet Mexico vs. Saudi Arabia
-    Back underdog Canada on odds better than 3.20.
-    No bet Belgium vs. Croatia
-    No bet Germany vs. Costa Rica
-    No bet Spain vs. Japan
-    No bet Uruguay vs. Ghana
-    No bet Portugal vs. South Korea
-    No bet Brazil vs. Cameroon
-    Back underdog Serbia on odds better than 2.74.
-
-
-
-
-
-
-|
+.. GENERATED FROM PYTHON SOURCE LINES 36-83
 
 .. code-block:: default
+
 
     import pandas as pd
     import matplotlib.pyplot as plt
@@ -126,9 +89,6 @@ the World Cup 2022.
             odds_load.at[i,'favourite'] = odds_row['Away Team']
             odds_load.at[i,'underdog'] = odds_row['Home Team']  
         
-        
-        
-    
     odds_load = odds_load.assign(favnewprob=1/(1+alpha*np.power(odds_load['favfair']-1,beta)))
     odds_load = odds_load.assign(underdognewprob=1-odds_load['favnewprob']-odds_load['drawprob'])
     odds_load = odds_load.assign(favfairodds=1/odds_load['favnewprob'])
@@ -139,13 +99,44 @@ the World Cup 2022.
             print('Back favourite %s on odds better than %.2f.' % (odds_row['favourite'],odds_row['favfairodds']) )
         elif (odds_row['underdogfairodds']<odds_row['underdogodds']):
             print('Back underdog %s on odds better than %.2f.' % ( odds_row['underdog'], odds_row['underdogfairodds']) )
-        else:
-            print('No bet %s vs. %s' % (odds_row['favourite'],odds_row['underdog']))
+        #else:
+        #    print('No bet %s vs. %s' % (odds_row['favourite'],odds_row['underdog']))
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    Back underdog Qatar on odds better than 3.64.
+    Back underdog Wales on odds better than 3.02.
+    Back underdog Mexico on odds better than 2.71.
+    Back underdog Iran on odds better than 3.55.
+    Back underdog Qatar on odds better than 3.86.
+    Back underdog Tunisia on odds better than 2.89.
+    Back underdog Denmark on odds better than 4.11.
+    Back underdog Germany on odds better than 2.82.
+    Back underdog Cameroon on odds better than 4.23.
+    Back underdog Ghana on odds better than 2.94.
+    Back underdog Uruguay on odds better than 3.77.
+    Back underdog Ecuador on odds better than 2.90.
+    Back underdog Iran on odds better than 3.43.
+    Back underdog Canada on odds better than 3.20.
+    Back underdog Serbia on odds better than 2.74.
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 84-84
+
+Please gamble responsibly.
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.012 seconds)
+   **Total running time of the script:** ( 0 minutes  0.015 seconds)
 
 
 .. _sphx_glr_download_gallery_lesson1_plot_predictions.py:

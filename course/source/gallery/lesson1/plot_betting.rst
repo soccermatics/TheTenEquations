@@ -25,22 +25,66 @@ Fitting the model
 
 In this section we use odds from previous tournaments to 
 fit the model to data. We do this using a method known 
-as logistic regression. Let's start by loading in the data.
+as `logistic regression <https://youtu.be/yIYKR4sgzI8>`_. 
+Let's start by loading in the data. 
 
-.. GENERATED FROM PYTHON SOURCE LINES 11-44
+The odds here are for two World Cups and two Euros. They are given 
+in European form. Remember, the UK odds are found by taking away one
+from the European odds.
+
+.. GENERATED FROM PYTHON SOURCE LINES 16-34
 
 .. code-block:: default
 
 
+    # Import the libraries we will use.
     import pandas as pd
     import matplotlib.pyplot as plt
     import numpy as np
     import statsmodels.api as sm
     import statsmodels.formula.api as smf
 
+    # Load in the data
     wc_load = pd.read_csv("../data/WorldCupEuroCupOdds.csv", delimiter=';')
     wc_load = wc_load[(wc_load['Stage']==1) | (wc_load['Stage']==2)]
     wc = wc_load.rename(columns={'FTHG': 'HomeGoals', 'FTAG': 'AwayGoals'})
+
+    # We start by looking at the closing odds
+    wc_df = wc[['AwayTeam','HomeTeam','HomeGoals','AwayGoals','PSH','PSD','PSA']].assign(goaldiff=wc['HomeGoals']-wc['AwayGoals'])
+    oddslabel='Closing odds'
+
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 35-52
+
+Making the bookmakers odds fair
+-------------------------------
+
+Bookmakers odds are set up so that they have an edge. If we calculate
+
+.. math::
+
+ t = \frac{1}{o_\mbox{home}} + \frac{1}{o_\mbox{draw}} + \frac{1}{o_\mbox{away}} 
+
+ – where :math:`o_\mbox{home}`, :math:`o_\mbox{draw}` and :math:`o_\mbox{away}` 
+are the (European) odds of each outcome – then we typically find a value 
+greater than one.
+
+To make the probabilities implied by the odds fair we thus divide each
+of the probabilites by :math:`t`. Now the probabilities of the three outcomes add up
+to one. This is done below, along with a change that allows us to work out
+values for the favourite.
+
+.. GENERATED FROM PYTHON SOURCE LINES 52-73
+
+.. code-block:: default
+
 
     def MakeOddsCalculations(wc_df):       
         # Calculate win, draw and lose for the outcomes.
@@ -59,9 +103,7 @@ as logistic regression. Let's start by loading in the data.
     
         return wc_df
 
-    # We start by looking at the closing odds
-    wc_df = wc[['AwayTeam','HomeTeam','HomeGoals','AwayGoals','PSH','PSD','PSA']].assign(goaldiff=wc['HomeGoals']-wc['AwayGoals'])
-    oddslabel='Closing odds'
+
     wc_df = MakeOddsCalculations(wc_df)  
 
 
@@ -71,7 +113,10 @@ as logistic regression. Let's start by loading in the data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-97
+.. GENERATED FROM PYTHON SOURCE LINES 74-125
+
+Logistic regression
+-------------------
 
 A logistic regression model has the following form 
 
@@ -79,33 +124,29 @@ A logistic regression model has the following form
 
  P( Y = 1 | z ) = \frac{1}{1 + \exp(b_0+b_1 z)}
 
-where :math:`z` is a feature of the data and $Y$ is the event to be predicted. In our case, :math:`Y`
+where :math:`z` is a feature of the data and :math:`Y` is the event to be predicted. In our case, :math:`Y`
 is the event that the favourite wins. So, :math:`Y=1` means the favourit wins, :math:`Y=0`
 means they don't (draw or underdog wins). 
 
-In the last section, we presented THE BETTING EQUATION, which has 
-the following form 
+In the last:ref:`section<oddsandprobs>` section, we presented 
+The Betting Equation as
 
 .. math::
  :label: eq:Betting
 
- P( Y = 1 | z ) = \frac{1}{1 + \alpha x^\beta} 
+ P( Y = 1 | x ) = \frac{1}{1 + \alpha x^\beta} 
 
 where :math:`x` are the fair odds for the favourite in UK form. These two equations
 are slightly different but related. What we need to do now is find a 
 a way of calculating :math:`z` from the data we have just loaded in and use it to 
 estimate :math:`\alpha` and :math:`\beta`. 
 
-This first step is to calculate the fair probabilities of win, draw and lose. The odds conatin 
-a bookmakers edge and we want to adjust them to remove that edge. This is done in the code above
-using the method explained on the `previous page <../lesson1/calculate_odds.md>`. 
-
 The (fair) UK odds for the favourite is the ratio of the probability that the favourite doesn't win and
 the probability that the favourite does win. That is
 
 .. math::
 
-  x = \frac{1-p}{p} 
+  x = 1/p - 1 = \frac{1-p}{p} 
 
 where :math:`p` is the probability that the favourite wins. We now set 
 
@@ -126,7 +167,7 @@ This is the same as the :math:numref:`Betting Equation <eq:Betting>`, with :math
 
 Let's calculate the log odds for our data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 97-103
+.. GENERATED FROM PYTHON SOURCE LINES 125-131
 
 .. code-block:: default
 
@@ -143,12 +184,12 @@ Let's calculate the log odds for our data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 104-106
+.. GENERATED FROM PYTHON SOURCE LINES 132-134
 
 Now lets import tools required for a logistic regression model
 and use them to fit the parameters.
 
-.. GENERATED FROM PYTHON SOURCE LINES 106-119
+.. GENERATED FROM PYTHON SOURCE LINES 134-145
 
 .. code-block:: default
 
@@ -158,12 +199,10 @@ and use them to fit the parameters.
     print(test_model.summary())
     b=test_model.params
     alpha=np.exp(b[0])
-    beta=b[1]
+    beta=-b[1]
     
     print('Estimate of alpha: ', alpha)
     print('Estimate of beta: ',beta)
-
-
 
 
 
@@ -180,8 +219,8 @@ and use them to fit the parameters.
     Model Family:                               Binomial   Df Model:                            1
     Link Function:                                 Logit   Scale:                          1.0000
     Method:                                         IRLS   Log-Likelihood:                -180.75
-    Date:                               Sun, 06 Nov 2022   Deviance:                       361.49
-    Time:                                       21:52:01   Pearson chi2:                     283.
+    Date:                               Mon, 07 Nov 2022   Deviance:                       361.49
+    Time:                                       20:17:21   Pearson chi2:                     283.
     No. Iterations:                                    4   Pseudo R-squ. (CS):             0.1031
     Covariance Type:                           nonrobust                                         
     ==============================================================================
@@ -191,19 +230,26 @@ and use them to fit the parameters.
     favlog        -1.2954      0.252     -5.131      0.000      -1.790      -0.801
     ==============================================================================
     Estimate of alpha:  1.1380456338486287
-    Estimate of beta:  -1.2954245420192907
+    Estimate of beta:  1.2954245420192907
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 120-122
+.. GENERATED FROM PYTHON SOURCE LINES 146-154
 
 We now have an estimate of our paramters :math:`\alpha` and :math:`\beta`.
-Let's plot the model and compare it to the data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 122-169
+Plotting the predictions
+------------------------
+
+Let's plot the model and compare it to the data. 
+Notice that we make the comparison as a difference between reality
+and outcome. 
+
+.. GENERATED FROM PYTHON SOURCE LINES 155-203
 
 .. code-block:: default
+
 
 
     def FormatFigure(ax):       
@@ -245,7 +291,7 @@ Let's plot the model and compare it to the data.
     p=np.arange(0.01,0.99,0.00001)
     
     fig,ax=plt.subplots(1,1)
-    ax.plot(p,1/(1+alpha*np.power(p/(1-p),beta))-p, label=oddslabel)
+    ax.plot(p,1/(1+alpha*np.power((1-p)/p,beta))-p, label=oddslabel)
     ax = PlotOddsData(ax,wc_df)
     ax = FormatFigure(ax)
 
@@ -264,15 +310,37 @@ Let's plot the model and compare it to the data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 170-173
+.. GENERATED FROM PYTHON SOURCE LINES 204-220
 
-Same for opening odds
----------------------
+These values caught my attention immediately when I first fit this model. 
+The fact that both parameters, α and β, were 
+bigger than 1 indicated that there was a (small) bias in the way the odds
+were set.
 
+The plot above shows two ways in which we might have an edge
+Firstly, the right hand side of the plot shows that a 
+long-shot bias exists against strong favourites. 
+These teams are typically under-estimated by the bookmakers’ odds 
+and therefore worth backing. The middle and left hand side of the plot
+shows that weaker favourites are over-estimated. This difference between
+odds and outcome is even more pronounced and seems to be where
+most of the value in the model is to be found.
 
-.. GENERATED FROM PYTHON SOURCE LINES 173-195
+Although these differences between predictions and model were small, 
+Jan, Marius and I knew that they were big enough for us to make a profit...
+
+.. GENERATED FROM PYTHON SOURCE LINES 223-228
+
+Opening odds
+------------
+
+We found a similar pattern in the opening odds as the closing odds, but
+the bias was smaller. We do this fitting below.
+
+.. GENERATED FROM PYTHON SOURCE LINES 228-253
 
 .. code-block:: default
+
 
 
     wc_df = wc[['AwayTeam','HomeTeam','HomeGoals','AwayGoals','Home Open','Draw Open','Away Open']].assign(goaldiff=wc['HomeGoals']-wc['AwayGoals'])
@@ -299,6 +367,8 @@ Same for opening odds
     plt.show()
 
 
+
+
 .. image-sg:: /gallery/lesson1/images/sphx_glr_plot_betting_002.png
    :alt: Probability favourite wins
    :srcset: /gallery/lesson1/images/sphx_glr_plot_betting_002.png
@@ -316,8 +386,8 @@ Same for opening odds
     Model Family:                               Binomial   Df Model:                            1
     Link Function:                                 Logit   Scale:                          1.0000
     Method:                                         IRLS   Log-Likelihood:                -169.67
-    Date:                               Sun, 06 Nov 2022   Deviance:                       339.33
-    Time:                                       21:52:02   Pearson chi2:                     259.
+    Date:                               Mon, 07 Nov 2022   Deviance:                       339.33
+    Time:                                       20:17:22   Pearson chi2:                     259.
     No. Iterations:                                    4   Pseudo R-squ. (CS):            0.07218
     Covariance Type:                           nonrobust                                         
     ==============================================================================
@@ -332,10 +402,20 @@ Same for opening odds
 
 
 
+.. GENERATED FROM PYTHON SOURCE LINES 254-261
+
+As the big tournaments approach the odds reflect reality less!
+This is seen in values of  α and β being closer to one 
+for the opening odds than for the closing odds (above). 
+
+.. image:: ../../images/lesson1/ClosingOddsWorse.png
+  :width: 640
+  :align: center
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.599 seconds)
+   **Total running time of the script:** ( 0 minutes  1.588 seconds)
 
 
 .. _sphx_glr_download_gallery_lesson1_plot_betting.py:

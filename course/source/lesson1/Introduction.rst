@@ -22,13 +22,12 @@ gamblers of all time, William Benter.
    :align: center
 
 
-In Chapter 1 of the Ten Equations, you can read more about how Benter made his billion;
-how British gamblers, Matthew Benham and Tony Bloom  
+In Chapter 1 of the Ten Equations, you can read more about 
+how Benter made a billion dollars; how British gamblers, Matthew Benham and Tony Bloom  
 followed a similar approach to football, allowing them to buy their childhood clubs 
- Brentford and Brighton (respectively); 
-and I meet Oxford statistician Sir David Cox who discovered the maths behind their approaches.
+Brentford and Brighton, respectively; and I meet Oxford statistician Sir David Cox who discovered the maths behind their approaches.
 
-On these pages we will look in more detail at the maths behind the equation that 
+Now we will look in more detail at the maths behind the equation that 
 Marius, Jan and I used to make money on the 2018 Wrold Cup: The Betting 
 Equation.
 
@@ -41,9 +40,9 @@ Equation.
    :align: center
 
 We are going to start by learning the basics of
-:ref:`oddsandprobs`. Then, in section :ref:`fitmodel`, 
+:ref:`odds and probabilities<oddsandprobs>`. Then, in section :ref:`fitmodel`, 
 we will learn how
 to load bookmakers odds in to Python and 
-use the equation above to find a bias in the odds. Then 
+use the equation above to find a bias in the odds. Finally,
 we will look at the prediction the model makes 
-for :ref:`the World Cup 2022<predictions2022>`.
+for :ref:`the World Cup 2022<predictions2022>`. 

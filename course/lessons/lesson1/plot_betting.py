@@ -6,18 +6,49 @@ Fitting the model
 
 In this section we use odds from previous tournaments to 
 fit the model to data. We do this using a method known 
-as logistic regression. Let's start by loading in the data.
+as `logistic regression <https://youtu.be/yIYKR4sgzI8>`_. 
+Let's start by loading in the data. 
+
+The odds here are for two World Cups and two Euros. They are given 
+in European form. Remember, the UK odds are found by taking away one
+from the European odds.
 """
 
+# Import the libraries we will use.
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
 
+# Load in the data
 wc_load = pd.read_csv("../data/WorldCupEuroCupOdds.csv", delimiter=';')
 wc_load = wc_load[(wc_load['Stage']==1) | (wc_load['Stage']==2)]
 wc = wc_load.rename(columns={'FTHG': 'HomeGoals', 'FTAG': 'AwayGoals'})
+
+# We start by looking at the closing odds
+wc_df = wc[['AwayTeam','HomeTeam','HomeGoals','AwayGoals','PSH','PSD','PSA']].assign(goaldiff=wc['HomeGoals']-wc['AwayGoals'])
+oddslabel='Closing odds'
+
+
+##############################################################################
+# Making the bookmakers odds fair
+# -------------------------------
+#
+# Bookmakers odds are set up so that they have an edge. If we calculate
+# 
+# .. math::
+# 
+#  t = \frac{1}{o_\mbox{home}} + \frac{1}{o_\mbox{draw}} + \frac{1}{o_\mbox{away}} 
+#  
+#  – where :math:`o_\mbox{home}`, :math:`o_\mbox{draw}` and :math:`o_\mbox{away}` 
+# are the (European) odds of each outcome – then we typically find a value 
+# greater than one.
+#
+# To make the probabilities implied by the odds fair we thus divide each
+# of the probabilites by :math:`t`. Now the probabilities of the three outcomes add up
+# to one. This is done below, along with a change that allows us to work out
+# values for the favourite.
 
 def MakeOddsCalculations(wc_df):       
     # Calculate win, draw and lose for the outcomes.
@@ -36,45 +67,42 @@ def MakeOddsCalculations(wc_df):
     
     return wc_df
 
-# We start by looking at the closing odds
-wc_df = wc[['AwayTeam','HomeTeam','HomeGoals','AwayGoals','PSH','PSD','PSA']].assign(goaldiff=wc['HomeGoals']-wc['AwayGoals'])
-oddslabel='Closing odds'
+
 wc_df = MakeOddsCalculations(wc_df)  
 
 ##############################################################################
+# Logistic regression
+# -------------------
+# 
 # A logistic regression model has the following form 
 #
 # .. math::
 # 
 #  P( Y = 1 | z ) = \frac{1}{1 + \exp(b_0+b_1 z)}
 # 
-# where :math:`z` is a feature of the data and $Y$ is the event to be predicted. In our case, :math:`Y`
+# where :math:`z` is a feature of the data and :math:`Y` is the event to be predicted. In our case, :math:`Y`
 # is the event that the favourite wins. So, :math:`Y=1` means the favourit wins, :math:`Y=0`
 # means they don't (draw or underdog wins). 
 # 
-# In the last section, we presented THE BETTING EQUATION, which has 
-# the following form 
+# In the last:ref:`section<oddsandprobs>` section, we presented 
+# The Betting Equation as
 #
 # .. math::
 #  :label: eq:Betting
 #
-#  P( Y = 1 | z ) = \frac{1}{1 + \alpha x^\beta} 
+#  P( Y = 1 | x ) = \frac{1}{1 + \alpha x^\beta} 
 # 
 # where :math:`x` are the fair odds for the favourite in UK form. These two equations
 # are slightly different but related. What we need to do now is find a 
 # a way of calculating :math:`z` from the data we have just loaded in and use it to 
 # estimate :math:`\alpha` and :math:`\beta`. 
 # 
-# This first step is to calculate the fair probabilities of win, draw and lose. The odds conatin 
-# a bookmakers edge and we want to adjust them to remove that edge. This is done in the code above
-# using the method explained on the `previous page <../lesson1/calculate_odds.md>`. 
-#     
 # The (fair) UK odds for the favourite is the ratio of the probability that the favourite doesn't win and
 # the probability that the favourite does win. That is
 #
 # .. math::
 #    
-#   x = \frac{1-p}{p} 
+#   x = 1/p - 1 = \frac{1-p}{p} 
 #  
 # where :math:`p` is the probability that the favourite wins. We now set 
 #
@@ -109,16 +137,22 @@ test_model = smf.glm(formula="favwin ~ favlog", data=wc_df, family=sm.families.B
 print(test_model.summary())
 b=test_model.params
 alpha=np.exp(b[0])
-beta=b[1]
+beta=-b[1]
     
 print('Estimate of alpha: ', alpha)
 print('Estimate of beta: ',beta)
 
-
-
 ##############################################################################
+# 
 # We now have an estimate of our paramters :math:`\alpha` and :math:`\beta`.
-# Let's plot the model and compare it to the data.
+# 
+# Plotting the predictions
+# ------------------------
+#
+# Let's plot the model and compare it to the data. 
+# Notice that we make the comparison as a difference between reality
+# and outcome. 
+
 
 def FormatFigure(ax):       
     
@@ -159,7 +193,7 @@ def PlotOddsData(ax,wc_df):
 p=np.arange(0.01,0.99,0.00001)
     
 fig,ax=plt.subplots(1,1)
-ax.plot(p,1/(1+alpha*np.power(p/(1-p),beta))-p, label=oddslabel)
+ax.plot(p,1/(1+alpha*np.power((1-p)/p,beta))-p, label=oddslabel)
 ax = PlotOddsData(ax,wc_df)
 ax = FormatFigure(ax)
 
@@ -167,9 +201,31 @@ plt.show()
 
 
 ##############################################################################
-# Same for opening odds
-# ---------------------
+# These values caught my attention immediately when I first fit this model. 
+# The fact that both parameters, α and β, were 
+# bigger than 1 indicated that there was a (small) bias in the way the odds
+# were set.
+# 
+# The plot above shows two ways in which we might have an edge
+# Firstly, the right hand side of the plot shows that a 
+# long-shot bias exists against strong favourites. 
+# These teams are typically under-estimated by the bookmakers’ odds 
+# and therefore worth backing. The middle and left hand side of the plot
+# shows that weaker favourites are over-estimated. This difference between
+# odds and outcome is even more pronounced and seems to be where
+# most of the value in the model is to be found.
+#  
+# Although these differences between predictions and model were small, 
+# Jan, Marius and I knew that they were big enough for us to make a profit...
+
+
+##############################################################################
+# Opening odds
+# ------------
 #
+# We found a similar pattern in the opening odds as the closing odds, but
+# the bias was smaller. We do this fitting below.
+
 
 wc_df = wc[['AwayTeam','HomeTeam','HomeGoals','AwayGoals','Home Open','Draw Open','Away Open']].assign(goaldiff=wc['HomeGoals']-wc['AwayGoals'])
 wc_df = wc_df.rename(columns={'Home Open': 'PSH', 'Away Open': 'PSA', 'Draw Open': 'PSD'})    
@@ -193,3 +249,12 @@ ax = PlotOddsData(ax,wc_df)
 ax = FormatFigure(ax)
 
 plt.show()
+
+#######################################################
+# As the big tournaments approach the odds reflect reality less!
+# This is seen in values of  α and β being closer to one 
+# for the opening odds than for the closing odds (above). 
+# 
+# .. image:: ../../images/lesson1/ClosingOddsWorse.png
+#   :width: 640
+#   :align: center

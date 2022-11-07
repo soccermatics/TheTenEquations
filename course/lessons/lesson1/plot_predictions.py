@@ -4,9 +4,36 @@
 Predictions World Cup 2022
 ==========================
 
-In this section we use the model to make predictions for
-the World Cup 2022.
+How it went in 2018
+-------------------
+
+Marius, Jan and myself placed a series of bets on the Wrold Cup 2018 and we won.
+Later I wrote...
+
+.. image:: ../../images/lesson1/TheResult.png
+   :width: 640
+   :align: center
+
+I am always in two minds as to whether to offer gambling tips. In the 
+Ten Equations I follow Jan and Marius as they start to profit from their gambling
+enterprise. They adopted a scientific approach, while many people looking for
+quick tips do not. This proved to be a common theme when I looked at the role of
+maths in society: those with the knowledge accumulate financial resources, 
+those without the appropriate training lose out. 
+
+Nevertheless, it isn't an interesting experiment if we don't make predictions. 
+So here we go...
+
+Try it in 2022
+--------------
+
+We now load in the odds for World Cup 2022 and try to find an edge using the model. 
+When I collected the odds used here, they were still close to the opening level. 
+So I use the paramters measured for that value. You can upload closing odds 
+before the match and change the :math:`\alpha` or :math:`\beta` values accordingly.
+
 """
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -50,5 +77,9 @@ for i,odds_row in odds_load.iterrows():
         print('Back favourite %s on odds better than %.2f.' % (odds_row['favourite'],odds_row['favfairodds']) )
     elif (odds_row['underdogfairodds']<odds_row['underdogodds']):
         print('Back underdog %s on odds better than %.2f.' % ( odds_row['underdog'], odds_row['underdogfairodds']) )
-    else:
-        print('No bet %s vs. %s' % (odds_row['favourite'],odds_row['underdog']))
+    #else:
+    #    print('No bet %s vs. %s' % (odds_row['favourite'],odds_row['underdog']))
+
+#####################################################################
+# 
+# Please gamble responsibly.

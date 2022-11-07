@@ -20,6 +20,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -48,7 +49,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../lesson1/Introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lesson1/ProbabilitiesOdds.html">Odds and probabilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_betting.html">Fitting the model</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Predictions World Cup 2022</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Predictions World Cup 2022</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-it-went-in-2018">How it went in 2018</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#try-it-in-2022">Try it in 2022</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">The Judgement Equation:</span></p>
 <ul>
@@ -85,61 +90,26 @@ to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="predictions-world-cup-2022">
 <span id="predictions2022"></span><span id="sphx-glr-gallery-lesson1-plot-predictions-py"></span><h1>Predictions World Cup 2022<a class="headerlink" href="#predictions-world-cup-2022" title="Permalink to this heading"></a></h1>
-<p>In this section we use the model to make predictions for
-the World Cup 2022.</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Back underdog Qatar on odds better than 3.64.
-No bet England vs. Iran
-No bet Netherlands vs. Senegal
-Back underdog Wales on odds better than 3.02.
-No bet Argentina vs. Saudi Arabia
-No bet Denmark vs. Tunisia
-Back underdog Mexico on odds better than 2.71.
-No bet France vs. Australia
-No bet Croatia vs. Morocco
-No bet Germany vs. Japan
-No bet Spain vs. Costa Rica
-No bet Belgium vs. Canada
-No bet Switzerland vs. Cameroon
-No bet Uruguay vs. South Korea
-No bet Portugal vs. Ghana
-No bet Brazil vs. Serbia
-Back underdog Iran on odds better than 3.55.
-Back underdog Qatar on odds better than 3.86.
-No bet Netherlands vs. Ecuador
-No bet England vs. USA
-Back underdog Tunisia on odds better than 2.89.
-No bet Poland vs. Saudi Arabia
-Back underdog Denmark on odds better than 4.11.
-No bet Argentina vs. Mexico
-No bet Japan vs. Costa Rica
-No bet Belgium vs. Morocco
-No bet Croatia vs. Canada
-Back underdog Germany on odds better than 2.82.
-Back underdog Cameroon on odds better than 4.23.
-Back underdog Ghana on odds better than 2.94.
-No bet Brazil vs. Switzerland
-Back underdog Uruguay on odds better than 3.77.
-Back underdog Ecuador on odds better than 2.90.
-No bet Netherlands vs. Qatar
-Back underdog Iran on odds better than 3.43.
-No bet England vs. Wales
-No bet Denmark vs. Australia
-No bet France vs. Tunisia
-No bet Argentina vs. Poland
-No bet Mexico vs. Saudi Arabia
-Back underdog Canada on odds better than 3.20.
-No bet Belgium vs. Croatia
-No bet Germany vs. Costa Rica
-No bet Spain vs. Japan
-No bet Uruguay vs. Ghana
-No bet Portugal vs. South Korea
-No bet Brazil vs. Cameroon
-Back underdog Serbia on odds better than 2.74.
-</pre></div>
+<div class="section" id="how-it-went-in-2018">
+<h2>How it went in 2018<a class="headerlink" href="#how-it-went-in-2018" title="Permalink to this heading"></a></h2>
+<p>Marius, Jan and myself placed a series of bets on the Wrold Cup 2018 and we won.
+Later I wrote…</p>
+<a class="reference internal image-reference" href="../../_images/TheResult.png"><img alt="../../_images/TheResult.png" class="align-center" src="../../_images/TheResult.png" style="width: 640px;" /></a>
+<p>I am always in two minds as to whether to offer gambling tips. In the
+Ten Equations I follow Jan and Marius as they start to profit from their gambling
+enterprise. They adopted a scientific approach, while many people looking for
+quick tips do not. This proved to be a common theme when I looked at the role of
+maths in society: those with the knowledge accumulate financial resources,
+those without the appropriate training lose out.</p>
+<p>Nevertheless, it isn’t an interesting experiment if we don’t make predictions.
+So here we go…</p>
 </div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
+<div class="section" id="try-it-in-2022">
+<h2>Try it in 2022<a class="headerlink" href="#try-it-in-2022" title="Permalink to this heading"></a></h2>
+<p>We now load in the odds for World Cup 2022 and try to find an edge using the model.
+When I collected the odds used here, they were still close to the opening level.
+So I use the paramters measured for that value. You can upload closing odds
+before the match and change the <span class="math notranslate nohighlight">\(lpha\)</span> or <span class="math notranslate nohighlight">\(eta\)</span> values accordingly.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -173,9 +143,6 @@ Back underdog Serbia on odds better than 2.74.
         <span class="n">odds_load</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;favourite&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;Away Team&#39;</span><span class="p">]</span>
         <span class="n">odds_load</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;underdog&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;Home Team&#39;</span><span class="p">]</span>
 
-
-
-
 <span class="n">odds_load</span> <span class="o">=</span> <span class="n">odds_load</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">favnewprob</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">alpha</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;favfair&#39;</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">beta</span><span class="p">)))</span>
 <span class="n">odds_load</span> <span class="o">=</span> <span class="n">odds_load</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">underdognewprob</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;favnewprob&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;drawprob&#39;</span><span class="p">])</span>
 <span class="n">odds_load</span> <span class="o">=</span> <span class="n">odds_load</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">favfairodds</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">odds_load</span><span class="p">[</span><span class="s1">&#39;favnewprob&#39;</span><span class="p">])</span>
@@ -186,11 +153,29 @@ Back underdog Serbia on odds better than 2.74.
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Back favourite </span><span class="si">%s</span><span class="s1"> on odds better than </span><span class="si">%.2f</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;favourite&#39;</span><span class="p">],</span><span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;favfairodds&#39;</span><span class="p">])</span> <span class="p">)</span>
     <span class="k">elif</span> <span class="p">(</span><span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;underdogfairodds&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;underdogodds&#39;</span><span class="p">]):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Back underdog </span><span class="si">%s</span><span class="s1"> on odds better than </span><span class="si">%.2f</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span> <span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;underdog&#39;</span><span class="p">],</span> <span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;underdogfairodds&#39;</span><span class="p">])</span> <span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No bet </span><span class="si">%s</span><span class="s1"> vs. </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;favourite&#39;</span><span class="p">],</span><span class="n">odds_row</span><span class="p">[</span><span class="s1">&#39;underdog&#39;</span><span class="p">]))</span>
+    <span class="c1">#else:</span>
+    <span class="c1">#    print(&#39;No bet %s vs. %s&#39; % (odds_row[&#39;favourite&#39;],odds_row[&#39;underdog&#39;]))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.012 seconds)</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Back underdog Qatar on odds better than 3.64.
+Back underdog Wales on odds better than 3.02.
+Back underdog Mexico on odds better than 2.71.
+Back underdog Iran on odds better than 3.55.
+Back underdog Qatar on odds better than 3.86.
+Back underdog Tunisia on odds better than 2.89.
+Back underdog Denmark on odds better than 4.11.
+Back underdog Germany on odds better than 2.82.
+Back underdog Cameroon on odds better than 4.23.
+Back underdog Ghana on odds better than 2.94.
+Back underdog Uruguay on odds better than 3.77.
+Back underdog Ecuador on odds better than 2.90.
+Back underdog Iran on odds better than 3.43.
+Back underdog Canada on odds better than 3.20.
+Back underdog Serbia on odds better than 2.74.
+</pre></div>
+</div>
+<p>Please gamble responsibly.</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.015 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-lesson1-plot-predictions-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/b0d67d94909331481feafb568b665ed2/plot_predictions.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_predictions.py</span></code></a></p>
@@ -200,6 +185,7 @@ Back underdog Serbia on odds better than 2.74.
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
 </div>
 
 
