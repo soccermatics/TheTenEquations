@@ -37,16 +37,13 @@ Coming soon.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 12-15
+.. GENERATED FROM PYTHON SOURCE LINES 12-13
 
-This is a title
----------------
-Let's do ..
+...
 
-.. GENERATED FROM PYTHON SOURCE LINES 15-18
+.. GENERATED FROM PYTHON SOURCE LINES 13-15
 
 .. code-block:: default
-
 
 
     x=np.zeros(1)
@@ -60,7 +57,7 @@ Let's do ..
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.001 seconds)
+   **Total running time of the script:** ( 0 minutes  0.023 seconds)
 
 
 .. _sphx_glr_download_gallery_lesson2_plot_bayes.py:

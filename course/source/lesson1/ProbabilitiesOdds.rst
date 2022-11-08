@@ -9,13 +9,14 @@ Different ways of stating odds
 In the UK, odds are stated as fractions, such as 3/2. 
 This means that for every £2 you stake, you will win £3 if 
 your bet comes off. In what follows, we use :math:`x`  to denote the bookmaker's
-odds for the favourite to win. If you stake £1 you will win £:math:`x` if 
+odds for the favourite to win. If you stake 1 pound you will win :math:`x` pounds if 
 your bet comes off.
 
 For me, the UK odds make alot more sense than American odds.
-In Vegas are stated as a number greater than or equal to 100, 
+In Las Vegas they are stated as a number greater than or equal to 100, 
 preceded by a + or a - to indicate whether the number is your profit 
-or the amount you need to bet to win $100. Let's look at some examples. If 
+or the amount you need to bet to win $100. To understand this, 
+let's look at some examples. If 
 the UK odds are 2/1, then the US odds are +200: if you bet $100 and win, 
 then your profit is $200. But when the odds (UK style) are less than one, the 
 sign on the US switches from positive to negative. So, if the UK odds are 3/7, 
@@ -33,7 +34,7 @@ Simple. For UK odds of 3/2, the European odds would be presented as
 European odds are like interest rates: to calculate our potential profit, 
 all we have to do is multiply by the odds. European odds equal one plus UK odds. 
 In the data we use in the next section, the odds are given in European form,
-but unless otherwise stated, I will use UK odds. 
+but unless otherwise stated, I will use UK odds.
 
 A fair bet
 ----------
@@ -54,7 +55,7 @@ if they don't win. Taking the second term away from the first, gives the expecte
 
 Try one of these calculations yourself: if the probability that England win is 1 in 2, is this a good bet?
 
-(You should find that the expected payoff in this case is 1/2)
+(You should find that the expected payoff in this case is 1/2. It is a good bet)
 
 A fair bet is when the expected payoff is zero, i.e. on average neither you or the bookmaker
 will make a profit. We can find this by solving

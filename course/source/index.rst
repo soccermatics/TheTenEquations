@@ -5,15 +5,17 @@
 
 This is the companion website to David Sumpter's book 
 `The Ten Equations that Rule The World <https://www.amazon.co.uk/Ten-Equations-that-Rule-World/dp/0141991097>`_. 
-In these pages, I go deep in to the maths and programming used in the book, 
-showing step by step: how to find edges over bookmakers; use Bayesian reasoning to get us through our daily 
-lives; the algorithms used by Google, Facebook and Youtube work; and how mathematicians
-model the financial world; and much more.
+
+In these pages, I go deep in to the maths and programming used in the book. 
+I show step by step how to find edges over bookmakers; 
+the logic of Bayesian reasoning; the inner workings of the 
+algorithms used by Google, Facebook and Youtube work; how mathematicians
+model the financial world; and many other mathematical secrets.
 
 *This is currently work in progress.* Chapter 1 on The Betting Equation is complete.
 Stay tuned over Winter 2022 to Spring 2023 as I add more content. 
 
-**To get the most out of this site please buy (and start reading!) the book.**
+**To get the most out of this site please read the book.**
 
 Contents
 ========
