@@ -61,27 +61,34 @@ from the European odds.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-52
+.. GENERATED FROM PYTHON SOURCE LINES 35-59
 
 Making the bookmakers odds fair
 -------------------------------
 
-Bookmakers odds are set up so that they have an edge. If we calculate
+Bookmakers odds are set up so that they have a margin (an edge). If we calculate
 
 .. math::
 
  t = \frac{1}{o_\mbox{home}} + \frac{1}{o_\mbox{draw}} + \frac{1}{o_\mbox{away}} 
 
- – where :math:`o_\mbox{home}`, :math:`o_\mbox{draw}` and :math:`o_\mbox{away}` 
+where 
+
+.. math::
+
+ o_\mbox{home}, o_\mbox{draw} \mbox{ and  } o_\mbox{away} 
+
 are the (European) odds of each outcome – then we typically find a value 
-greater than one.
+greater than one (if it is one then the odds are fair). For more about making odds
+fair (and another method for correcting the odds for the margin) see 
+`here <https://www.football-data.co.uk/The_Wisdom_of_the_Crowd_updated.pdf>`_
 
 To make the probabilities implied by the odds fair we thus divide each
 of the probabilites by :math:`t`. Now the probabilities of the three outcomes add up
 to one. This is done below, along with a change that allows us to work out
 values for the favourite.
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-73
+.. GENERATED FROM PYTHON SOURCE LINES 59-80
 
 .. code-block:: default
 
@@ -113,7 +120,7 @@ values for the favourite.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-125
+.. GENERATED FROM PYTHON SOURCE LINES 81-132
 
 Logistic regression
 -------------------
@@ -167,7 +174,7 @@ This is the same as the :math:numref:`Betting Equation <eq:Betting>`, with :math
 
 Let's calculate the log odds for our data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 125-131
+.. GENERATED FROM PYTHON SOURCE LINES 132-138
 
 .. code-block:: default
 
@@ -184,12 +191,12 @@ Let's calculate the log odds for our data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 132-134
+.. GENERATED FROM PYTHON SOURCE LINES 139-141
 
 Now lets import tools required for a logistic regression model
 and use them to fit the parameters.
 
-.. GENERATED FROM PYTHON SOURCE LINES 134-145
+.. GENERATED FROM PYTHON SOURCE LINES 141-152
 
 .. code-block:: default
 
@@ -219,8 +226,8 @@ and use them to fit the parameters.
     Model Family:                               Binomial   Df Model:                            1
     Link Function:                                 Logit   Scale:                          1.0000
     Method:                                         IRLS   Log-Likelihood:                -180.75
-    Date:                               Mon, 07 Nov 2022   Deviance:                       361.49
-    Time:                                       20:17:21   Pearson chi2:                     283.
+    Date:                               Sun, 13 Nov 2022   Deviance:                       361.49
+    Time:                                       16:52:12   Pearson chi2:                     283.
     No. Iterations:                                    4   Pseudo R-squ. (CS):             0.1031
     Covariance Type:                           nonrobust                                         
     ==============================================================================
@@ -235,7 +242,7 @@ and use them to fit the parameters.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 146-154
+.. GENERATED FROM PYTHON SOURCE LINES 153-161
 
 We now have an estimate of our paramters :math:`\alpha` and :math:`\beta`.
 
@@ -246,7 +253,7 @@ Let's plot the model and compare it to the data.
 Notice that we make the comparison as a difference between reality
 and outcome. 
 
-.. GENERATED FROM PYTHON SOURCE LINES 155-203
+.. GENERATED FROM PYTHON SOURCE LINES 162-210
 
 .. code-block:: default
 
@@ -310,7 +317,7 @@ and outcome.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 204-220
+.. GENERATED FROM PYTHON SOURCE LINES 211-227
 
 These values caught my attention immediately when I first fit this model. 
 The fact that both parameters, α and β, were 
@@ -329,7 +336,7 @@ most of the value in the model is to be found.
 Although these differences between predictions and model were small, 
 Jan, Marius and I knew that they were big enough for us to make a profit...
 
-.. GENERATED FROM PYTHON SOURCE LINES 223-228
+.. GENERATED FROM PYTHON SOURCE LINES 230-235
 
 Opening odds
 ------------
@@ -337,7 +344,7 @@ Opening odds
 We found a similar pattern in the opening odds as the closing odds, but
 the bias was smaller. We do this fitting below.
 
-.. GENERATED FROM PYTHON SOURCE LINES 228-253
+.. GENERATED FROM PYTHON SOURCE LINES 235-260
 
 .. code-block:: default
 
@@ -386,8 +393,8 @@ the bias was smaller. We do this fitting below.
     Model Family:                               Binomial   Df Model:                            1
     Link Function:                                 Logit   Scale:                          1.0000
     Method:                                         IRLS   Log-Likelihood:                -169.67
-    Date:                               Mon, 07 Nov 2022   Deviance:                       339.33
-    Time:                                       20:17:22   Pearson chi2:                     259.
+    Date:                               Sun, 13 Nov 2022   Deviance:                       339.33
+    Time:                                       16:52:12   Pearson chi2:                     259.
     No. Iterations:                                    4   Pseudo R-squ. (CS):            0.07218
     Covariance Type:                           nonrobust                                         
     ==============================================================================
@@ -402,7 +409,7 @@ the bias was smaller. We do this fitting below.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 254-261
+.. GENERATED FROM PYTHON SOURCE LINES 261-268
 
 As the big tournaments approach the odds reflect reality less!
 This is seen in values of  α and β being closer to one 
@@ -415,7 +422,7 @@ for the opening odds than for the closing odds (above).
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.588 seconds)
+   **Total running time of the script:** ( 0 minutes  1.516 seconds)
 
 
 .. _sphx_glr_download_gallery_lesson1_plot_betting.py:

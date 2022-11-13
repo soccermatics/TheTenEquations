@@ -49,7 +49,7 @@ Try it in 2022
 We now load in the odds for World Cup 2022 and try to find an edge using the model. 
 When I collected the odds used here, they were still close to the opening level. 
 So I use the paramters measured for that value. You can upload closing odds 
-before the match and change the :math:`lpha` or :math:`eta` values accordingly.
+before the match and change the alpha or beta values accordingly.
 
 .. GENERATED FROM PYTHON SOURCE LINES 36-83
 
@@ -136,7 +136,7 @@ Please gamble responsibly.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.015 seconds)
+   **Total running time of the script:** ( 0 minutes  0.018 seconds)
 
 
 .. _sphx_glr_download_gallery_lesson1_plot_predictions.py:

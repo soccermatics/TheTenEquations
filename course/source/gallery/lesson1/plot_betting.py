@@ -35,15 +35,22 @@ oddslabel='Closing odds'
 # Making the bookmakers odds fair
 # -------------------------------
 #
-# Bookmakers odds are set up so that they have an edge. If we calculate
+# Bookmakers odds are set up so that they have a margin (an edge). If we calculate
 # 
 # .. math::
 # 
 #  t = \frac{1}{o_\mbox{home}} + \frac{1}{o_\mbox{draw}} + \frac{1}{o_\mbox{away}} 
 #  
-#  – where :math:`o_\mbox{home}`, :math:`o_\mbox{draw}` and :math:`o_\mbox{away}` 
+# where 
+# 
+# .. math::
+# 
+#  o_\mbox{home}, o_\mbox{draw} \mbox{ and  } o_\mbox{away} 
+#
 # are the (European) odds of each outcome – then we typically find a value 
-# greater than one.
+# greater than one (if it is one then the odds are fair). For more about making odds
+# fair (and another method for correcting the odds for the margin) see 
+# `here <https://www.football-data.co.uk/The_Wisdom_of_the_Crowd_updated.pdf>`_
 #
 # To make the probabilities implied by the odds fair we thus divide each
 # of the probabilites by :math:`t`. Now the probabilities of the three outcomes add up

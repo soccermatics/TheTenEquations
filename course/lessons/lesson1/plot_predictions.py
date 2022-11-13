@@ -30,7 +30,7 @@ Try it in 2022
 We now load in the odds for World Cup 2022 and try to find an edge using the model. 
 When I collected the odds used here, they were still close to the opening level. 
 So I use the paramters measured for that value. You can upload closing odds 
-before the match and change the :math:`\alpha` or :math:`\beta` values accordingly.
+before the match and change the alpha or beta values accordingly.
 
 """
 
