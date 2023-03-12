@@ -50,7 +50,7 @@ oddslabel='Closing odds'
 # are the (European) odds of each outcome – then we typically find a value 
 # greater than one (if it is one then the odds are fair). For more about making odds
 # fair (and another method for correcting the odds for the margin) see 
-# `here <https://www.football-data.co.uk/The_Wisdom_of_the_Crowd_updated.pdf>`_
+# `here <https://www.football-data.co.uk/The_Wisdom_of_the_Crowd_updated.pdf>`_.
 #
 # To make the probabilities implied by the odds fair we thus divide each
 # of the probabilites by :math:`t`. Now the probabilities of the three outcomes add up

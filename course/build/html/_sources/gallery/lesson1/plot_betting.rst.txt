@@ -81,7 +81,7 @@ where
 are the (European) odds of each outcome – then we typically find a value 
 greater than one (if it is one then the odds are fair). For more about making odds
 fair (and another method for correcting the odds for the margin) see 
-`here <https://www.football-data.co.uk/The_Wisdom_of_the_Crowd_updated.pdf>`_
+`here <https://www.football-data.co.uk/The_Wisdom_of_the_Crowd_updated.pdf>`_.
 
 To make the probabilities implied by the odds fair we thus divide each
 of the probabilites by :math:`t`. Now the probabilities of the three outcomes add up
@@ -226,8 +226,8 @@ and use them to fit the parameters.
     Model Family:                               Binomial   Df Model:                            1
     Link Function:                                 Logit   Scale:                          1.0000
     Method:                                         IRLS   Log-Likelihood:                -180.75
-    Date:                               Sun, 13 Nov 2022   Deviance:                       361.49
-    Time:                                       16:52:12   Pearson chi2:                     283.
+    Date:                               Sun, 12 Mar 2023   Deviance:                       361.49
+    Time:                                       14:23:55   Pearson chi2:                     283.
     No. Iterations:                                    4   Pseudo R-squ. (CS):             0.1031
     Covariance Type:                           nonrobust                                         
     ==============================================================================
@@ -393,8 +393,8 @@ the bias was smaller. We do this fitting below.
     Model Family:                               Binomial   Df Model:                            1
     Link Function:                                 Logit   Scale:                          1.0000
     Method:                                         IRLS   Log-Likelihood:                -169.67
-    Date:                               Sun, 13 Nov 2022   Deviance:                       339.33
-    Time:                                       16:52:12   Pearson chi2:                     259.
+    Date:                               Sun, 12 Mar 2023   Deviance:                       339.33
+    Time:                                       14:23:55   Pearson chi2:                     259.
     No. Iterations:                                    4   Pseudo R-squ. (CS):            0.07218
     Covariance Type:                           nonrobust                                         
     ==============================================================================
@@ -422,7 +422,7 @@ for the opening odds than for the closing odds (above).
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.516 seconds)
+   **Total running time of the script:** ( 0 minutes  14.312 seconds)
 
 
 .. _sphx_glr_download_gallery_lesson1_plot_betting.py:
